@@ -1,7 +1,8 @@
 # Chart.JS-RangeSlider
 This adds the option of having a range slider to your charts, to allow you to select a specific data scale
 
-
+##Demo
+JSFiddle: https://jsfiddle.net/schme16/xfyvvup8/
 
 ##Installation:
  - [Download this repo](https://github.com/schme16/Chart.js-RangeSlider/archive/master.zip) or git clone (eg. `git clone https://github.com/schme16/Chart.js-RangeSlider.git`)
