@@ -1,0 +1,10 @@
+.range-slider {
+    height: 10px;
+}
+
+.noUi-horizontal .noUi-handle {
+    width: 34px;
+    height: 28px;
+    left: -17px;
+    top: -10px;
+}

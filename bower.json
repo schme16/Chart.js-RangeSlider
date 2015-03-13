@@ -1,0 +1,31 @@
+{
+  "name": "Chart.js-RangeSlider",
+  "version": "0.0.0",
+  "homepage": "https://github.com/schme16/Chart.js-RangeSlider",
+  "repo": "https://github.com/schme16/Chart.js-RangeSlider",
+  "authors": [
+    "Shane Gadsby <schme16@gmail.com>"
+  ],
+  "description": "This adds the option of having a range slider to your charts, to allow you to select a specific data scale — Edit",
+  "main": "Chart.JS-RangeSlider.min.js",
+  "keywords": [
+    "Chart.js",
+    "plugin",
+    "range",
+    "slider",
+    "RangeSlider"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "gulpfile.js",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Chart.js": "~1.0.2",
+    "nouislider": "~7.0.10"
+  }
+}
