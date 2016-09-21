@@ -7,12 +7,12 @@ path = require('path');
 
 var staticJS = {
 		jquery: 'bower_components/jquery/dist/jquery.min.js',
-		chartjs: 'bower_components/Chart.js/Chart.min.js',
-		nouislider: 'bower_components/nouislider/distribute/jquery.nouislider.all.min.js',
+		chartjs: 'bower_components/Chart.js/dist/Chart.bundle.js',
+		nouislider: 'bower_components/nouislider/distribute/nouislider.min.js',
 	},
 
 	staticCss = {
-		nouislider: 'bower_components/nouislider/distribute/jquery.nouislider.min.css',
+		nouislider: 'bower_components/nouislider/distribute/nouislider.min.css',
 	},
 
 	srcJS = [

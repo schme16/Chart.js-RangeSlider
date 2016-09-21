@@ -1,29 +1,38 @@
-function RangeSliderChart(opts) {
+function RangeSliderChart (opts) {
 	var ranger = {
 		chartProto: new Chart(opts.chartCTX),
 		datasets: opts.chartData,
 		chartOpts: opts.chartOpts || {},
 		options: opts,
-		sliderElement: $('<div>').addClass('range-slider').width(opts.chartCTX.canvas.width),
+		sliderElement: $('<div>'),
 
 		_getData: function (min, max) {
 			
 			var d = {},
-			Datasets = JSON.parse(JSON.stringify(ranger.datasets));
-			d.labels = Datasets.labels.splice(min, (max-min || 1));
-			d.datasets = [];
+			Datasets = JSON.parse(JSON.stringify(ranger.datasets))
+			d.labels = Datasets.labels.splice(min, (max-min || 1))
+			d.datasets = []
 			for (var i in Datasets.datasets) {
 				var nD = Datasets.datasets[i]
-					nD.data = nD.data.splice(min, (max-min || 1));
-				d.datasets.push(nD);
+					nD.data = nD.data.splice(min, (max-min || 1))
+				d.datasets.push(nD)
 			}
 
-			return d;
+			return d
+		},
+
+		_draw: function (ctx, data, options) {
+			if (ranger.chart) ranger.chart.destroy()
+			ranger.chart = new Chart(ctx, {
+				type: 'line',
+				data: data,
+				options: options
+			})
 		},
 
 		_create: function () {
 
- 			ranger.sliderElement.noUiSlider({
+			noUiSlider.create(ranger.sliderElement[0], {
                 start: ranger.options.initial,
                 step: 1,
                 connect: true,
@@ -32,34 +41,34 @@ function RangeSliderChart(opts) {
                     'max': ranger.datasets.datasets[0].data.length -1
                 }
             })
-            .on({
-                slide: function (b) {
-                    ranger._min = parseInt($(b.target).val()[0]);
-                    ranger._max = parseInt($(b.target).val()[1]);
-                },
 
-                change: function (b) {
-
-                    ranger.chart.destroy();
-           			ranger.chart = ranger.chartProto[ranger.options.chartType](ranger._getData( ranger._min, ranger._max ), ranger.chartOpts);
-                }
+            ranger.sliderElement[0].noUiSlider.on('slide', function (b) {
+                ranger._min = parseInt(b[0])
+            	ranger._max = parseInt(b[1])
             })
-            /*.Link('lower').to($('#from'), null, wNumb({
-                decimals: 0
-            }))
-            .Link('upper').to($('#to'), null, wNumb({
-                decimals: 0
-            }))*/
+
+            ranger.sliderElement[0].noUiSlider.on('change', function (b) {
+				if (ranger.chart) {
+					ranger._draw(opts.chartCTX, ranger._getData( ranger._min, ranger._max ), ranger.chartOpts)
+				}
+            })
 
 	
 			ranger.sliderElement.insertAfter(opts.chartCTX.canvas)
 			
-			if(ranger.chart) ranger.chart.destroy();
-           	ranger.chart = ranger.chartProto[ranger.options.chartType](ranger._getData( ranger.options.initial[0], ranger.options.initial[1] ), ranger.chartOpts);
+			ranger._draw(opts.chartCTX, ranger._getData( ranger.options.initial[0], ranger.options.initial[1] ), ranger.chartOpts)
 		}
 
 	}
 
+
+
+	ranger.sliderElement
+		.addClass('range-slider')
+		.width(opts.chartCTX.canvas.width)
+
 	ranger._create()
 	return ranger
 }
+
+

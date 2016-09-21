@@ -5,13 +5,20 @@
 	<title>Chart.js demo</title>
 	
 	<!-- import plugin script -->
-<!-- 	<script src="../bower_components/Chart.js/Chart.js"></script>
-	 -->
-	 <script src="../dist/RangeSlider-all.min.js"></script>
+	<script src="../dist/RangeSlider-all.min.js"></script>
 	
 	<link rel="stylesheet" href="../dist/RangeSlider-all.min.css">
 
-
+ 	<!-- local files, used for development 
+	 <script src="../bower_components/jquery/dist/jquery.js"></script>
+	 <script src="../bower_components/nouislider/distribute/nouislider.js"></script>
+	 <script src="../bower_components/Chart.js/dist/Chart.bundle.js""></script>
+	 <script src="../src/RangeSlider-core.js"></script>
+	
+	<link rel="stylesheet" href="../bower_components/nouislider/distribute/nouislider.min.css">
+	<link rel="stylesheet" href="../src/RangeSlider-core.css">
+	-->
+	
 </head>
 <body>
 	<!-- line chart canvas element -->
@@ -53,6 +60,39 @@
 				"2020"
 			],
 			datasets:[{
+				label: "Rangeslider Line 1",
+				fillColor:"rgba(172,194,132,0)",
+				strokeColor:"#C45662",
+				pointColor:"#C45662",
+				pointStrokeColor:"#fff",
+				pointHighlightFill: "#fff",
+				pointHighlightStroke: "#C45662",
+				/*You only put numeric data here*/
+				data:[
+					randomTo(480, 600),
+					randomTo(480, 600),
+					randomTo(480, 600),
+					randomTo(480, 600),
+					randomTo(480, 600),
+					randomTo(480, 600),
+					randomTo(480, 600),
+					randomTo(480, 600),
+					randomTo(480, 600),
+					randomTo(480, 600),
+					randomTo(480, 600),
+					randomTo(480, 600),
+					randomTo(480, 600),
+					randomTo(480, 600),
+					randomTo(480, 600),
+					randomTo(480, 600),
+					randomTo(480, 600),
+					randomTo(480, 600),
+					randomTo(480, 600),
+					randomTo(480, 600),
+				]
+			},
+			{
+				label: "Rangeslider Line 2",
 				fillColor:"rgba(172,194,132,0)",
 				strokeColor:"#C45662",
 				pointColor:"#C45662",
@@ -89,8 +129,9 @@
 		// create the options
 		options = {
 			scaleBeginAtZero: true,
-			/*This is how to customize how the labels look :) */
-			tooltipTemplate: "<%if (label){%><%=label%>: <%}%>$<%= value %>"
+			/*This is how to customize the way the labels look :) */
+			tooltipTemplate: "<%if (label){%><%=label%>: <%}%>$<%= value %>",
+			label: 'test'
 		},
 
 
@@ -103,7 +144,7 @@
 
 			chartData: iniData,
 			chartOpts: options,
-			chartType: 'Line',
+			chartType: 'line',
 			chartCTX: ini,
 
 			class: 'my-chart-ranger',
