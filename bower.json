@@ -1,6 +1,6 @@
 {
   "name": "chart.js-rangeslider",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "homepage": "https://github.com/schme16/Chart.js-RangeSlider",
   "repo": "https://github.com/schme16/Chart.js-RangeSlider",
   "authors": [
@@ -26,6 +26,7 @@
   ],
   "dependencies": {
     "Chart.js": "^2.2.2",
-    "nouislider": "^8.5.1"
+    "nouislider": "^8.5.1",
+    "jquery": "2"
   }
 }
