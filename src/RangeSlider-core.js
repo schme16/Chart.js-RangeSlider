@@ -21,13 +21,20 @@ function RangeSliderChart (opts) {
 			return d
 		},
 
-		_draw: function (ctx, data, options) {
-			if (ranger.chart) ranger.chart.destroy()
-			ranger.chart = new Chart(ctx, {
-				type: 'line',
-				data: data,
-				options: options
-			})
+		_draw: function (ctx, data, options, opts) {
+			if (!ranger.chart) {
+
+				ranger.chart = new Chart(ctx, {
+					type: opts.type || options.type || 'line',
+					data: data,
+					options: options
+				})
+			}
+			else {
+				ranger.chart.data.datasets = data.datasets
+				ranger.chart.data.labels = data.labels
+				ranger.chart.update()
+			}
 		},
 
 		_create: function () {
@@ -49,14 +56,14 @@ function RangeSliderChart (opts) {
 
             ranger.sliderElement[0].noUiSlider.on('change', function (b) {
 				if (ranger.chart) {
-					ranger._draw(opts.chartCTX, ranger._getData( ranger._min, ranger._max ), ranger.chartOpts)
+					ranger._draw(opts.chartCTX, ranger._getData( ranger._min, ranger._max ), ranger.chartOpts, ranger.opts)
 				}
             })
 
 	
 			ranger.sliderElement.insertAfter(opts.chartCTX.canvas)
 			
-			ranger._draw(opts.chartCTX, ranger._getData( ranger.options.initial[0], ranger.options.initial[1] ), ranger.chartOpts)
+			ranger._draw(opts.chartCTX, ranger._getData( ranger.options.initial[0], ranger.options.initial[1] ), ranger.chartOpts, ranger.options)
 		}
 
 	}
