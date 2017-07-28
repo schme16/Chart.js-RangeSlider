@@ -1,28 +1,28 @@
 # Chart.JS-RangeSlider
 A range slider plugin for Chart.JS, that enables you to select a specific data scales.
 
-##Demo
+## Demo
 JSFiddle: https://jsfiddle.net/schme16/xfyvvup8/20/
 
-##Installation:
+## Installation:
 `bower install chart.js-rangeslider --save`
 `npm install chart.js-rangeslider --save`
 or straight from the source:
  - As a zip: https://github.com/schme16/Chart.js-RangeSlider/archive/master.zip)
  - via git: `git clone https://github.com/schme16/Chart.js-RangeSlider.git`
 
-##Dependencies
+## Dependencies
  - jQuery (_for now_)
  - Chart.js
  - noUISlider
 
-##Which one should I use?
+## Which one should I use?
  - Include the version that suits you best; the library comes in three flavours:
    - Solo: Only the plugin is included.
    - Minimal: The plugin and the slider library [noUISlider](https://github.com/leongersen/noUiSlider) is included
    - All: This one is batteries included, as such it come with jQuery, Chart.js noUISlider and the plugin all bundled together.
   
-##Usage
+## Usage
 ```javascript
 new RangeSliderChart({
 
