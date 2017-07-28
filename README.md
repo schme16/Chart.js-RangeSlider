@@ -5,7 +5,8 @@ A range slider plugin for Chart.JS, that enables you to select a specific data s
 JSFiddle: https://jsfiddle.net/schme16/xfyvvup8/20/
 
 ##Installation:
-`bower info chart.js-rangeslider --save`
+`bower install chart.js-rangeslider --save`
+`npm install chart.js-rangeslider --save`
 or straight from the source:
  - As a zip: https://github.com/schme16/Chart.js-RangeSlider/archive/master.zip)
  - via git: `git clone https://github.com/schme16/Chart.js-RangeSlider.git`
