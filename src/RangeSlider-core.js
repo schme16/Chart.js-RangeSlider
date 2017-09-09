@@ -7,7 +7,7 @@ function RangeSliderChart (opts) {
 		sliderElement: $('<div>'),
 
 		_getData: function (min, max) {
-			
+
 			var d = {},
 			Datasets = JSON.parse(JSON.stringify(ranger.datasets))
 			d.labels = Datasets.labels.splice(min, (max-min || 1))
@@ -25,7 +25,7 @@ function RangeSliderChart (opts) {
 			if (!ranger.chart) {
 
 				ranger.chart = new Chart(ctx, {
-					type: opts.type || options.type || 'line',
+					type: opts.chartType || options.type || 'line',
 					data: data,
 					options: options
 				})
@@ -60,9 +60,9 @@ function RangeSliderChart (opts) {
 				}
             })
 
-	
+
 			ranger.sliderElement.insertAfter(opts.chartCTX.canvas)
-			
+
 			ranger._draw(opts.chartCTX, ranger._getData( ranger.options.initial[0], ranger.options.initial[1] ), ranger.chartOpts, ranger.options)
 		}
 
@@ -77,5 +77,3 @@ function RangeSliderChart (opts) {
 	ranger._create()
 	return ranger
 }
-
-
