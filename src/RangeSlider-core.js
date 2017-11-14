@@ -51,7 +51,8 @@ function RangeSliderChart (opts) {
 
             ranger.sliderElement[0].noUiSlider.on('slide', function (b) {
                 ranger._min = parseInt(b[0])
-            	ranger._max = parseInt(b[1])
+            	ranger._max = parseInt(b[1]) + 1
+            	console.log(ranger._min, ranger._max)
             })
 
             ranger.sliderElement[0].noUiSlider.on('change', function (b) {
@@ -72,7 +73,16 @@ function RangeSliderChart (opts) {
 
 	ranger.sliderElement
 		.addClass('range-slider')
-		.width(opts.chartCTX.canvas.width)
+		.css({
+			width: opts.chartCTX.canvas.width - 50
+		})
+
+	//TODO: add rangeslider width adjustment
+	$(window).on('resize', function () {
+		ranger.sliderElement.css({
+			width: opts.chartCTX.canvas.width - 50
+		})
+	})
 
 	ranger._create()
 	return ranger
