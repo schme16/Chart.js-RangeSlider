@@ -2,7 +2,7 @@
 A range slider plugin for Chart.JS, that enables you to select a specific data scales.
 
 ## Demo
-JSFiddle: https://jsfiddle.net/schme16/xfyvvup8/20/
+JSFiddle: https://jsfiddle.net/schme16/xfyvvup8/195/
 
 ## Installation:
 `bower install chart.js-rangeslider --save`
