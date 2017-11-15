@@ -15,6 +15,8 @@ function RangeSliderChart (opts) {
 			for (var i in Datasets.datasets) {
 				var nD = Datasets.datasets[i]
 					nD.data = nD.data.splice(min, (max-min || 1))
+					nD.pointBackgroundColor = nD.pointBackgroundColor.splice(min, max - min || 1)
+					nD.pointBorderColor = nD.pointBorderColor.splice(min, max - min || 1)
 				d.datasets.push(nD)
 			}
 
