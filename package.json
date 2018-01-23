@@ -1,6 +1,6 @@
 {
   "name": "chart.js-rangeslider",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "This adds the option of having a range slider to your charts, to allow you to select a specific data scale",
   "main": "Chart.JS-RangeSlider.min.js",
   "scripts": {
